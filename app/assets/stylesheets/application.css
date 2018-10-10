@@ -19,7 +19,7 @@
    bottom: 0;
    right: 0;
    left: 0;
-   background: rgba(0, 0, 0, 0.7);
+   background: rgba(242, 242, 242, 0.9);
    z-index: 10;
  }
 
@@ -29,3 +29,113 @@
    left: 50%;
    transform: translate(-50%, -50%);
  }
+
+ .main-background {
+   background-image: url('https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg');
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 100%;
+   border-top: 4px solid #f50;
+   height: 100%;
+ }
+
+.main-body-adtext-b1 {
+  background-color: Transparent;
+  color: #fff;
+  border-color: #ccc;
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+  padding: 2px 15px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.main-body-adtext-b2 {
+  background-color: #f50;
+  color: #fff;
+  border-color: #f50;
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+  padding: 2px 15px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  font-weight: 100;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-right: 50px;
+}
+
+.signin-button {
+  background-color: Transparent;
+  color: #fff;
+  border-color: #ccc;
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+  padding: 2px 15px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.create-account-button {
+  background-color: #f50;
+  color: #fff;
+  border-color: #f50;
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+  padding: 2px 15px;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  font-weight: 100;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-right: 50px;
+  font-family: sans-serif;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-header-logo {
+  margin-left: 30px;
+  display: flex;
+}
+
+.main-header-name {
+  color: #fff;
+  font-size:
+}
+
+.main-header-logo-pic {
+  align-self: center;
+}
+
+.main-header-name {
+  font-weight: 400;
+  font-size: 13px;
+  font-family: sans-serif;
+  padding-top: 5px;
+  padding-left: 5px;
+  letter-spacing: 1.5px;
+}
+
+.main-body-adtext {
+  display: flex;
+  flex-direction: column;
+}

@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
       <h1>{this.props.formType}</h1><br />
 
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div onClick={this.props.closeModal} className="close-x">XXX</div>
+          <div onClick={this.props.closeModal} className="close-x">X</div>
           {this.renderErrors()}
           <label>Username:
             <input type="text"
