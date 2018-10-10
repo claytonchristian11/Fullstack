@@ -22,3 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Install before dev
+bundle install
+npm install --save
+npm install webpack webpack-cli react react-dom react-router-dom redux react-redux @babel/core @babel/preset-react @babel/preset-env babel-loader lodash
+
+rails db:create
+rails db:migrate
+rails s
+webpack --watch --mode=development
+
+https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg

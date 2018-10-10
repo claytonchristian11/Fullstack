@@ -6,9 +6,9 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 // thunk action creators
 export const login = user => dispatch => (
-  APIUtil.login(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ), err => (
+  APIUtil.login(user)
+  .then(user => dispatch(receiveCurrentUser(user)),
+  err => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
@@ -27,7 +27,7 @@ export const signup = user => dispatch => (
   ))
 );
 
-// regular action creators 
+// regular action creators
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser
