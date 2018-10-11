@@ -22,7 +22,7 @@ const App = () => (
       <main className='main-body'>
         <div className='main-body-adtext'>
           <p className='main-body-adtext-go'>Discover more with CloudSounds Cloud+</p>
-          <p className='main-body-adtext-text'>CloudSounds cloud+ lets you listen offline, ad-free, with over 150 million songs.</p>
+          <p className='main-body-adtext-text'>CloudSounds Cloud+ lets you listen offline, ad-free, with over 150 million songs.</p>
           <div className='main-body-buttons'>
             <button className='main-body-adtext-b1'>Learn More</button>
             <button className='main-body-adtext-b2'>Try it free for 30 days</button>

@@ -23,11 +23,14 @@ Things you may want to cover:
 
 * ...
 
-Install before dev
+Installed at beggining
 bundle install
 npm install --save
 npm install webpack webpack-cli react react-dom react-router-dom redux react-redux @babel/core @babel/preset-react @babel/preset-env babel-loader lodash
 
+Install before dev
+bundle install
+npm install
 rails db:create
 rails db:migrate
 rails s
