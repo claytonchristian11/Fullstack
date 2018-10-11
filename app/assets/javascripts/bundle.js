@@ -197,46 +197,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
-/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./greeting/greeting_container */ "./frontend/components/greeting/greeting_container.jsx");
-/* harmony import */ var _session_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session/signup_form_container */ "./frontend/components/session/signup_form_container.jsx");
-/* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session/login_form_container */ "./frontend/components/session/login_form_container.jsx");
-
-
-
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
 
 
 
 
 var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-background"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-    className: "main-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-header-logo"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    className: "main-header-logo-pic",
-    src: "https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-    className: "main-header-name"
-  }, "CLOUDSOUNDS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    className: "main-header-signup"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
-    className: "main-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-body-adtext"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "main-body-adtext-go"
-  }, "Discover more with CloudSounds Cloud+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "main-body-adtext-text"
-  }, "CloudSounds Cloud+ lets you listen offline, ad-free, with over 150 million songs."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "main-body-buttons"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "main-body-adtext-b1"
-  }, "Learn More"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "main-body-adtext-b2"
-  }, "Try it free for 30 days"))))));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/",
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_2__["default"]
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -683,6 +653,66 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_session_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/splash/splash.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/splash/splash.jsx ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modal/modal */ "./frontend/components/modal/modal.jsx");
+/* harmony import */ var _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../greeting/greeting_container */ "./frontend/components/greeting/greeting_container.jsx");
+/* harmony import */ var _session_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session/signup_form_container */ "./frontend/components/session/signup_form_container.jsx");
+/* harmony import */ var _session_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../session/login_form_container */ "./frontend/components/session/login_form_container.jsx");
+
+
+
+
+
+
+
+function splash() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-background"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "main-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-header-logo"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "main-header-logo-pic",
+    src: "https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "main-header-name"
+  }, "CLOUDSOUNDS")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "main-header-signup"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", {
+    className: "main-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-body-adtext"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "main-body-adtext-go"
+  }, "Discover more with CloudSounds Cloud+"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "main-body-adtext-text"
+  }, "CloudSounds Cloud+ lets you listen offline, ad-free, with over 150 million songs."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "main-body-buttons"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "main-body-adtext-b1"
+  }, "Learn More"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "main-body-adtext-b2"
+  }, "Try it free for 30 days")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+    to: "/"
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (splash);
 
 /***/ }),
 
