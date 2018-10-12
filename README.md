@@ -36,6 +36,7 @@ rails db:migrate
 rails s
 webpack --watch --mode=development
 
+Push mess up to heroku
 download heroku
 heroku login
 heroku git:remote -a cloudsounds

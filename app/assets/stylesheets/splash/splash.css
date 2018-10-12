@@ -233,3 +233,11 @@
  height: 150px;
  width: 150px;
 }
+
+.login-errors {
+  list-style-type: none;
+  color: #f50;
+  font-family: sans-serif;
+  margin-left: -36px;
+  font-size: 12px;
+}

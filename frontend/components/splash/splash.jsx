@@ -29,7 +29,6 @@ function splash() {
           </div>
         </div>
       </main>
-      <Redirect to="/" />
     </div>
   );
 }

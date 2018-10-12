@@ -1,0 +1,86 @@
+.navbar-main {
+  background-color: #333;
+  height: 46px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.navbar-logo:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.navbar-home:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.navbar-upload:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.navbar-profile:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.navbar-logout:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar-logo {
+  background-color: #f50;
+  width: 69px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  margin-left: 100px;
+}
+
+.navbar-logo-img {
+  align-self: center;
+}
+
+.navbar-home {
+  align-self: center;
+  margin: 0 20px 0 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+.navbar-search-div {
+  align-self: center;
+}
+
+.navbar-search {
+  color: #666;
+  background: #e5e5e5;
+  width: 350px;
+  border-radius: 3px;
+  border: none;
+  height: 20px;
+}
+
+.navbar-upload {
+  align-self: center;
+  margin: 0 5px 0 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+.navbar-profile {
+  align-self: center;
+  margin: 0 5px 0 5px;
+  padding: 10px 10px 10px 10px;
+}
+
+.navbar-logout {
+  align-self: center;
+  margin: 0 5px 0 5px;
+  padding: 10px 10px 10px 10px;
+}

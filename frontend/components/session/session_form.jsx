@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="login-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
 
         <form onSubmit={this.handleSubmit}>
           <div onClick={this.props.closeModal} className="close-x">X</div>
-          {this.renderErrors()}
+
 
             <div className="modal-image-cont"><img className="modal-image" src="https://drupalintegration.com/sites/default/files/styles/large/public/app-images/soundcloud.png?itok=yDupitEu" /></div>
 
@@ -92,6 +92,8 @@ class SessionForm extends React.Component {
               value={this.state.password}
               onChange={this.update('password')} />
             <br />
+            {this.renderErrors()}
+
             <input type="submit" className="modal-continue-button" value="Continue" />
             <br />
             <input type="button" className="modal-demo-button" onClick={this.autoFill} value="Demo User" />
