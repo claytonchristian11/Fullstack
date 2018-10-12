@@ -42,4 +42,6 @@ heroku login
 heroku git:remote -a cloudsounds
 git push heroku master
 
+aws kanye grindallday1!
+
 https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg
