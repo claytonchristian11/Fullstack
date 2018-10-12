@@ -3,4 +3,8 @@
 
 require_relative 'config/application'
 
+require 'aws-sdk-core'
+
+Aws.config[:ssl_ca_bundle] = '/app/assets/ca-bundle/ca-bundle.crt'
+
 Rails.application.load_tasks

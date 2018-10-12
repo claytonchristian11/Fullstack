@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_171728) do
 
   create_table "songs", force: :cascade do |t|
     t.string "song_name", null: false
-    t.string "album_id", null: false
+    t.integer "album_id"
     t.index ["album_id"], name: "index_songs_on_album_id"
   end
 

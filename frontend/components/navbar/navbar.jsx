@@ -4,10 +4,16 @@ class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
   }
 
   logout() {
     this.props.logout();
+  }
+
+  handleUpload(e) {
+    e.preventDefault();
+    this.props.history.push('/upload');
   }
 
   render() {
@@ -20,7 +26,7 @@ class Navbar extends React.Component {
         <div className="navbar-search-div">
           <input className="navbar-search" type="text" placeholder="Search" />
         </div>
-        <div className="navbar-upload">Upload</div>
+        <div className="navbar-upload" onClick={this.handleUpload}>Upload</div>
         <div className="navbar-profile">Profile</div>
         <div onClick={this.logout} className="navbar-logout">Logout</div>
       </div>
