@@ -9,9 +9,18 @@ class Api::SongsController < ApplicationController
     end
   end
 
+  def index
+    @songs = Song.all
+
+  end
+
+  def show
+    @song = Song.find_by(params[:id])
+  end
+
   private
   def song_params
-    params.require(:song).permit(:song_name, :album_id, :audio)
+    params.require(:song).permit(:song_name, :album_id, :audio, :artwork)
   end
 
 

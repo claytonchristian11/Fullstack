@@ -1,3 +1,3 @@
-
-json.extract! @song, :song_name, :album_id
-json.audioUrl url_for(@song.audio)
+json.song do
+  json.partial! 'api/songs/song', song: @song
+end

@@ -38,18 +38,7 @@ export default class SongUpload extends React.Component {
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
     }
-    $.ajax({
-      url: '/api/songs',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    }).then(
-      (response) => console.log(response.message),
-      (response) => {
-        console.log(response.responseJSON);
-      }
-    );
+    this.props.receiveSong(formData).then(this.props.history.push('/home'));
   }
 
   render() {
