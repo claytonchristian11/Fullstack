@@ -189,13 +189,14 @@ var receiveErrors = function receiveErrors(errors) {
 /*!******************************************!*\
   !*** ./frontend/actions/song_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_CURRENT_SONG, RECEIVE_ALL_SONGS, receiveSong, fetchAllSongs, fetchAllSongsAction, receiveCurrentSong, receiveErrors */
+/*! exports provided: RECEIVE_CURRENT_SONG, RECEIVE_ALL_SONGS, RECEIVE_SESSION_ERRORS, receiveSong, fetchAllSongs, fetchAllSongsAction, receiveCurrentSong, receiveErrors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_SONG", function() { return RECEIVE_CURRENT_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_SONGS", function() { return RECEIVE_ALL_SONGS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SESSION_ERRORS", function() { return RECEIVE_SESSION_ERRORS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSong", function() { return receiveSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSongs", function() { return fetchAllSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSongsAction", function() { return fetchAllSongsAction; });
@@ -205,6 +206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var RECEIVE_CURRENT_SONG = 'RECEIVE_CURRENT_SONG';
 var RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
+var RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 var receiveSong = function receiveSong(song) {
   return function (dispatch) {
     return _util_song_util__WEBPACK_IMPORTED_MODULE_0__["receiveSong"](song).then(function (song) {
@@ -927,10 +929,13 @@ function (_React$Component) {
       song_name: "",
       album_id: "",
       audioFile: null,
-      audioUrl: null
+      audioUrl: null,
+      artworkFile: null,
+      artworkUrl: null
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleAudioFile = _this.handleAudioFile.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleArtworkFile = _this.handleArtworkFile.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -944,22 +949,41 @@ function (_React$Component) {
       };
     }
   }, {
-    key: "handleFile",
-    value: function handleFile(e) {
+    key: "handleAudioFile",
+    value: function handleAudioFile(e) {
       var _this3 = this;
 
-      var file = e.currentTarget.files[0];
-      var fileReader = new FileReader();
+      var audfile = e.currentTarget.files[0];
+      var audfileReader = new FileReader();
 
-      fileReader.onloadend = function () {
+      audfileReader.onloadend = function () {
         _this3.setState({
-          audioFile: file,
-          audioUrl: fileReader.result
+          audioFile: audfile,
+          audioUrl: audfileReader.result
         });
       };
 
-      if (file) {
-        fileReader.readAsDataURL(file);
+      if (audfile) {
+        audfileReader.readAsDataURL(audfile);
+      }
+    }
+  }, {
+    key: "handleArtworkFile",
+    value: function handleArtworkFile(e) {
+      var _this4 = this;
+
+      var artfile = e.currentTarget.files[0];
+      var artfileReader = new FileReader();
+
+      artfileReader.onloadend = function () {
+        _this4.setState({
+          artworkFile: artfile,
+          artworkUrl: artfileReader.result
+        });
+      };
+
+      if (artfile) {
+        artfileReader.readAsDataURL(artfile);
       }
     }
   }, {
@@ -971,6 +995,10 @@ function (_React$Component) {
 
       if (this.state.audioFile) {
         formData.append('song[audio]', this.state.audioFile);
+      }
+
+      if (this.state.artworkFile) {
+        formData.append('song[artwork]', this.state.artworkFile);
       }
 
       this.props.receiveSong(formData).then(this.props.history.push('/home'));
@@ -986,10 +1014,13 @@ function (_React$Component) {
         type: "text",
         value: this.state.song_name,
         onChange: this.update('song_name')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Audio file:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Audio file:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
-        onChange: this.handleFile
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onChange: this.handleAudioFile
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Album artwork file:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleArtworkFile
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "Upload Song!")));
     }
@@ -1112,7 +1143,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var song = _ref.song;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, song.song_name));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: song.artworkUrl
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, song.song_name));
 });
 
 /***/ }),
@@ -1172,7 +1205,7 @@ function (_React$Component) {
       var songs = this.props.songs;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stream-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "songs go here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, " ", songs.map(function (song) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to your stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Listen to your favorite artists, songs, and clouds here on CloudSounds")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, " ", songs.map(function (song) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_song_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: "song".concat(song.id),
           song: song
@@ -1426,7 +1459,12 @@ var songReducer = function songReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, action.song);
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_SONGS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, action.songs);
+      var songs = {};
+      var songsarr = Object.values(action.songs);
+      songsarr.forEach(function (song) {
+        songs[song.id] = song;
+      });
+      return songs;
 
     default:
       return oldState;

@@ -14,8 +14,12 @@ class Stream extends React.Component {
     const { songs } = this.props;
     return(
       <div className="stream-main">
-        <h1>stream</h1>
-        <h2>songs go here</h2>
+        <h1>Stream</h1>
+        <div>
+          <h2>Welcome to your stream</h2>
+          <p>Listen to your favorite artists, songs, and clouds here on CloudSounds</p>
+        </div>
+
         <ul> {
             songs.map(song => (
               <SongItem

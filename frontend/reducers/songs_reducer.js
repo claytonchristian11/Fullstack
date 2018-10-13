@@ -7,7 +7,12 @@ const songReducer = (oldState = {}, action) => {
     case RECEIVE_CURRENT_SONG:
       return merge({}, oldState, action.song);
     case RECEIVE_ALL_SONGS:
-      return merge({}, oldState, action.songs);
+      const songs = {};
+      let songsarr = Object.values(action.songs);
+        songsarr.forEach(song => {
+          songs[song.id] = song;
+        });
+      return songs;
     default:
       return oldState;
   }

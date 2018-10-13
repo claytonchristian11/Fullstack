@@ -8,10 +8,13 @@ export default class SongUpload extends React.Component {
       song_name: "",
       album_id: "",
       audioFile: null,
-      audioUrl: null
+      audioUrl: null,
+      artworkFile: null,
+      artworkUrl: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFile = this.handleFile.bind(this);
+    this.handleAudioFile = this.handleAudioFile.bind(this);
+    this.handleArtworkFile = this.handleArtworkFile.bind(this);
   }
 
   update(field) {
@@ -20,14 +23,25 @@ export default class SongUpload extends React.Component {
     });
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({audioFile: file, audioUrl: fileReader.result});
+  handleAudioFile(e) {
+    const audfile = e.currentTarget.files[0];
+    const audfileReader = new FileReader();
+    audfileReader.onloadend = () => {
+      this.setState({audioFile: audfile, audioUrl: audfileReader.result});
     };
-    if (file) {
-      fileReader.readAsDataURL(file);
+    if (audfile) {
+      audfileReader.readAsDataURL(audfile);
+    }
+  }
+
+  handleArtworkFile(e) {
+    const artfile = e.currentTarget.files[0];
+    const artfileReader = new FileReader();
+    artfileReader.onloadend = () => {
+      this.setState({artworkFile: artfile, artworkUrl: artfileReader.result});
+    };
+    if (artfile) {
+      artfileReader.readAsDataURL(artfile);
     }
   }
 
@@ -35,8 +49,13 @@ export default class SongUpload extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('song[song_name]', this.state.song_name);
+
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
+    }
+
+    if (this.state.artworkFile) {
+      formData.append('song[artwork]', this.state.artworkFile);
     }
     this.props.receiveSong(formData).then(this.props.history.push('/home'));
   }
@@ -50,13 +69,20 @@ export default class SongUpload extends React.Component {
               value={this.state.song_name}
               onChange={this.update('song_name')}
               />
-          </label>
+          </label><br />
 
           <label>Audio file:
             <input type="file"
-              onChange={this.handleFile}
+              onChange={this.handleAudioFile}
               />
-          </label>
+          </label><br />
+
+          <label>Album artwork file:
+            <input type="file"
+              onChange={this.handleArtworkFile}
+              />
+          </label><br />
+
           <button type='submit'>Upload Song!</button>
         </form>
       </div>

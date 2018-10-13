@@ -2,6 +2,7 @@ import * as APIUtil from '../util/song_util';
 
 export const RECEIVE_CURRENT_SONG = 'RECEIVE_CURRENT_SONG';
 export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const receiveSong = song => dispatch => (
   APIUtil.receiveSong(song)
