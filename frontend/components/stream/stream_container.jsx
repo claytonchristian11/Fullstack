@@ -2,9 +2,12 @@ import { connect } from 'react-redux';
 import React from 'react';
 import Stream from './stream';
 
-const mapStateToProps = state => ({
-
-});
+const mapStateToProps = state => {
+  debugger;
+  return {
+    
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
 
