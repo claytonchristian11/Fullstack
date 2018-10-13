@@ -33,7 +33,6 @@ export default class SongUpload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     const formData = new FormData();
     formData.append('song[song_name]', this.state.song_name);
     if (this.state.audioFile) {

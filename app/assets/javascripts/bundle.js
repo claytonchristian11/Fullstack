@@ -446,6 +446,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
     _this.logout = _this.logout.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleUpload = _this.handleUpload.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleHome = _this.handleHome.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -461,6 +462,12 @@ function (_React$Component) {
       this.props.history.push('/upload');
     }
   }, {
+    key: "handleHome",
+    value: function handleHome(e) {
+      e.preventDefault();
+      this.props.history.push('/home');
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -471,7 +478,8 @@ function (_React$Component) {
         className: "navbar-logo-img",
         src: "https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "navbar-home"
+        className: "navbar-home",
+        onClick: this.handleHome
       }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "navbar-search-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -898,7 +906,6 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      debugger;
       var formData = new FormData();
       formData.append('song[song_name]', this.state.song_name);
 
@@ -1048,7 +1055,9 @@ function (_React$Component) {
   _createClass(Stream, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "stream"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "songs go here"));
     }
   }]);
 

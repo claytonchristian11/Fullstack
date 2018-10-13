@@ -4,8 +4,9 @@ class Stream extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="stream-main">
         <h1>stream</h1>
+        <h2>songs go here</h2>
       </div>
     );
   }
