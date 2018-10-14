@@ -880,6 +880,46 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/songs/song_item.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/songs/song_item.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var song = _ref.song;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "stream-song-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "stream-song-item-div"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "song-item-art",
+    src: song.artworkUrl
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "song-item-top"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "song-item-play",
+    src: "https://www.seoclerk.com/pics/446033-13uMBM1476730969.png"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "song-item-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "song-item-artistname"
+  }, "Artist"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: "song-item-songname"
+  }, song.song_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "song-item-waveform",
+    src: "https://i.imgur.com/WY1U2DE.png"
+  })))));
+});
+
+/***/ }),
+
 /***/ "./frontend/components/songs/song_upload.jsx":
 /*!***************************************************!*\
   !*** ./frontend/components/songs/song_upload.jsx ***!
@@ -1007,22 +1047,29 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upload-form-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "upload-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Song name:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upload-form-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Upload a song to the cloud!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        onChange: this.handleAudioFile,
+        id: "audio-upload"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "upload-form-head"
+      }, "Song name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.song_name,
         onChange: this.update('song_name')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Audio file:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        onChange: this.handleAudioFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Album artwork file:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleArtworkFile
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
-      }, "Upload Song!")));
+      }, "Upload Song!")))));
     }
   }]);
 
@@ -1129,27 +1176,6 @@ function splash() {
 
 /***/ }),
 
-/***/ "./frontend/components/stream/song_item.jsx":
-/*!**************************************************!*\
-  !*** ./frontend/components/stream/song_item.jsx ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var song = _ref.song;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: song.artworkUrl
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, song.song_name));
-});
-
-/***/ }),
-
 /***/ "./frontend/components/stream/stream.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/stream/stream.jsx ***!
@@ -1161,7 +1187,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _song_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./song_item */ "./frontend/components/stream/song_item.jsx");
+/* harmony import */ var _songs_song_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../songs/song_item */ "./frontend/components/songs/song_item.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1204,13 +1230,23 @@ function (_React$Component) {
     value: function render() {
       var songs = this.props.songs;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-outer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "stream-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to your stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Listen to your favorite artists, songs, and clouds here on CloudSounds")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, " ", songs.map(function (song) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_song_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-stream-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "stream-stream"
+      }, "Stream")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to your stream"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Listen to your favorite artists, songs, and clouds here on CloudSounds")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "stream-song-ul"
+      }, " ", songs.map(function (song) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_songs_song_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: "song".concat(song.id),
           song: song
         });
-      })));
+      }))));
     }
   }]);
 

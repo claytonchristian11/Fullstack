@@ -62,29 +62,38 @@ export default class SongUpload extends React.Component {
 
   render() {
     return (
-      <div className="upload-form">
-        <form onSubmit={this.handleSubmit} >
-          <label >Song name:
-            <input type="text"
-              value={this.state.song_name}
-              onChange={this.update('song_name')}
-              />
-          </label><br />
+      <div className="upload-form-div">
+        <div className="upload-form">
+          <form onSubmit={this.handleSubmit} >
+            <div className="upload-form-main">
+              <h1>Upload a song to the cloud!</h1>
 
-          <label>Audio file:
-            <input type="file"
-              onChange={this.handleAudioFile}
-              />
-          </label><br />
+                <input type="file"
+                  onChange={this.handleAudioFile}
+                  id="audio-upload"
+                  />
 
-          <label>Album artwork file:
-            <input type="file"
-              onChange={this.handleArtworkFile}
-              />
-          </label><br />
 
-          <button type='submit'>Upload Song!</button>
-        </form>
+              <label className="upload-form-head">Song name
+                <input type="text"
+                  value={this.state.song_name}
+                  onChange={this.update('song_name')}
+
+                  />
+              </label><br />
+
+
+
+              <label>Album artwork file:
+                <input type="file"
+                  onChange={this.handleArtworkFile}
+                  />
+              </label><br />
+
+              <button type='submit'>Upload Song!</button>
+            </div>
+          </form>
+        </div>
       </div>
 
     );

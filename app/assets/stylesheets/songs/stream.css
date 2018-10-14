@@ -1,0 +1,109 @@
+
+.stream-main {
+  width: 82%;
+  height: 100%;
+  margin-top: 46px;
+  margin-left: 100px;
+  background-color: #fff;
+}
+
+.stream-outer {
+  margin-left: -100px;
+  width: 123%;
+  height: 110%;
+  background-color: whitesmoke;
+}
+.stream-stream {
+  font-family: sans-serif;
+  color: #f50;
+  font-weight: 500;
+  font-size: 26px;
+  padding-top: 30px;
+}
+
+.stream-stream-div {
+  margin-left: 30px;
+  border-bottom: 2px solid whitesmoke;
+  width: 90%;
+}
+
+.stream-description {
+  margin-left: 30px;
+  margin-bottom: 40px;
+}
+
+.stream-description h2, p{
+  color: #999;
+  font-family: sans-serif;
+  font-weight: 200;
+}
+
+.stream-description h2 {
+  font-size: 20px;
+}
+
+.stream-description p {
+  font-size: 17px;
+}
+
+.stream-song-ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.stream-song-item {
+  list-style: none;
+  margin: 10px 0 10px 0;
+}
+
+.stream-song-item-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.song-item-art {
+  width: 200px;
+  height: 200px;
+}
+
+.song-item-artistname {
+  color: #999;
+  font-family: sans-serif;
+  font-size: 13px;
+  margin-top: 0;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.song-item-songname {
+  color: #333;
+  font-family: sans-serif;
+  font-size: 17px;
+  margin-top: -8px;
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.song-item-play {
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+}
+
+.song-item-top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.song-item-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-item-waveform {
+  height: 90px;
+  width: 700px;
+  margin-top: 10px;
+}
