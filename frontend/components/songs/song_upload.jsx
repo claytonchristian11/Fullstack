@@ -5,12 +5,13 @@ export default class SongUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      artist_name: "",
       song_name: "",
       album_id: "",
       audioFile: null,
       audioUrl: null,
       artworkFile: null,
-      artworkUrl: null
+      artworkUrl: 'https://orig00.deviantart.net/5162/f/2014/153/9/e/no_album_art__no_cover___placeholder_picture_by_cmdrobot-d7kpm65.jpg'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAudioFile = this.handleAudioFile.bind(this);
@@ -49,6 +50,7 @@ export default class SongUpload extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('song[song_name]', this.state.song_name);
+    formData.append('song[artist_name]', this.state.artist_name);
 
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
@@ -61,36 +63,48 @@ export default class SongUpload extends React.Component {
   }
 
   render() {
+    const artworkPreview = <img className="upload-form-art" src={this.state.artworkUrl} />;
+
     return (
       <div className="upload-form-div">
         <div className="upload-form">
           <form onSubmit={this.handleSubmit} >
             <div className="upload-form-main">
               <h1>Upload a song to the cloud!</h1>
+              <div className="audio-file-div">
+                <label htmlFor="audio-upload" className="upload-label-aud">Audio  </label>
+                  <input type="file"
+                    onChange={this.handleAudioFile}
+                    id="audio-upload"
+                    />
+              </div>
 
-                <input type="file"
-                  onChange={this.handleAudioFile}
-                  id="audio-upload"
-                  />
+              <div className="upload-form-bottom">
+                <div className="upload-form-art-div">{artworkPreview}</div>
+                <div className="upload-form-info">
+                  <input type="text"
+                    className="upload-form-name"
+                    placeholder="Song name"
+                    value={this.state.song_name}
+                    onChange={this.update('song_name')}
+                    />
 
+                  <input type="text"
+                    className="upload-form-artname"
+                    placeholder="Artist Name"
+                    value={this.state.artist_name}
+                    onChange={this.update('artist_name')}
+                    /><br />
 
-              <label className="upload-form-head">Song name
-                <input type="text"
-                  value={this.state.song_name}
-                  onChange={this.update('song_name')}
+                  <label className="upload-label">Album artwork file</label><br />
+                    <input type="file"
+                      className="upload-artfile"
+                      onChange={this.handleArtworkFile}
+                      /><br />
 
-                  />
-              </label><br />
-
-
-
-              <label>Album artwork file:
-                <input type="file"
-                  onChange={this.handleArtworkFile}
-                  />
-              </label><br />
-
-              <button type='submit'>Upload Song!</button>
+                    <button className="upload-upload-button" type='submit'>Upload Song!</button>
+                </div>
+              </div>
             </div>
           </form>
         </div>

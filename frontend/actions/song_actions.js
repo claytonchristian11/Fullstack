@@ -3,6 +3,7 @@ import * as APIUtil from '../util/song_util';
 export const RECEIVE_CURRENT_SONG = 'RECEIVE_CURRENT_SONG';
 export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+export const RECEIVE_PLAY_SONG = 'RECEIVE_PLAY_SONG';
 
 export const receiveSong = song => dispatch => (
   APIUtil.receiveSong(song)
@@ -21,6 +22,13 @@ export const fetchAllSongs = () => dispatch => {
       dispatch(receiveErrors(err.responseJSON))
   ))
 );
+};
+
+export const receivePlaySong = song => {
+  return {
+    type: RECEIVE_PLAY_SONG,
+    song
+  };
 };
 
 export const fetchAllSongsAction = songs => {

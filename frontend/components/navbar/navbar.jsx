@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         </div>
         <div className="navbar-home" onClick={this.handleHome}>Home</div>
         <div className="navbar-search-div">
-          <input className="navbar-search" type="text" placeholder="Search" />
+          <input className="navbar-search" type="text" placeholder="  Search" />
         </div>
         <div className="navbar-upload" onClick={this.handleUpload}>Upload</div>
         <div className="navbar-profile">Profile</div>

@@ -13,6 +13,9 @@ const songReducer = (oldState = {}, action) => {
           songs[song.id] = song;
         });
       return songs;
+    case RECEIVE_PLAY_SONG:
+      let newState = {currentSong: action.song};
+      return merge({}, oldState, newState);
     default:
       return oldState;
   }
