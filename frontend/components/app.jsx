@@ -6,7 +6,7 @@ import Splash from './splash/splash';
 import Navbar from './navbar/navbar_container';
 import Stream from './stream/stream_container';
 import Upload from './songs/song_upload_container';
-import Player from './songs/song_player';
+import Player from './songs/song_player_container';
 
 const App = () => (
   <div>

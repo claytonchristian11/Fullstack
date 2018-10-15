@@ -5,6 +5,7 @@ import ReactAudioPlayer from 'react-audio-player';
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
+    this.currentSong = this.props.currentSong.currentSong;
   }
 
   render() {
@@ -12,7 +13,7 @@ class SongPlayer extends React.Component {
       <div className="song-player">
         <ReactAudioPlayer
           className="song-player-el"
-          src="/app/assets/songs/dreams.mp3"
+          src={this.currentSong.audioUrl}
           controls
           />
       </div>

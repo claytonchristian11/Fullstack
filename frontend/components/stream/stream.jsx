@@ -1,5 +1,5 @@
 import React from 'react';
-import SongItem from '../songs/song_item';
+import SongItem from '../songs/song_item_container';
 
 class Stream extends React.Component {
   constructor(props) {
@@ -28,7 +28,8 @@ class Stream extends React.Component {
               songs.map(song => (
                 <SongItem
                   key={`song${song.id}`}
-                  song={song} />
+                  song={song}
+                  history={this.props.history} />
               ))}
           </ul>
         </div>
