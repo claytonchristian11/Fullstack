@@ -10,7 +10,6 @@ class SongItem extends React.Component {
   handlePlay(e) {
     e.preventDefault();
     this.props.receivePlaySong(this.song);
-    this.props.history.push('/play');
   }
 
   render() {

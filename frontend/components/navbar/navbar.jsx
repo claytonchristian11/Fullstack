@@ -26,7 +26,11 @@ class Navbar extends React.Component {
     return (
       <div className="navbar-main">
         <div className="navbar-logo">
-          <img className="navbar-logo-img" src="https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png" />
+          <img
+            className="navbar-logo-img"
+            onClick={this.handleHome}
+            src="https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png"
+             />
         </div>
         <div className="navbar-home" onClick={this.handleHome}>Home</div>
         <div className="navbar-search-div">
