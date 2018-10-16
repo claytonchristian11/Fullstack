@@ -249,3 +249,72 @@
   margin-left: -36px;
   font-size: 12px;
 }
+
+.main-bottom {
+  margin-top: 140px;
+  background-color: #fff;
+}
+
+.main-bottom-header {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #333;
+  font-size: 24px;
+}
+
+
+.splash-song-ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.song-splash-item-li {
+  list-style: none;
+}
+
+.song-splash-item-artistname {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #999;
+  font-size: 13px;
+  margin: 0px 15px 5px 20px;
+}
+
+.song-splash-item-songname {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #333;
+  font-size: 14px;
+  margin: 2px 15px 5px 20px;
+}
+
+.song-splash-item-art {
+  height: 185px;
+  width: 185px;
+  margin: 20px 15px 5px 15px;
+}
+
+.splash-footer {
+  background-color: #fff;
+  margin-top: 0;
+  padding-top: 20px;
+}
+
+.splash-footer-div {
+  width: 90%;
+  margin-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top: 3px solid whitesmoke;
+}
+
+.splash-footer-text {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #999;
+  font-size: 13px;
+  margin-left: 5px;
+}

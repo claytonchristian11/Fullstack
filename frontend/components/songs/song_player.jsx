@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactAudioPlayer from 'react-audio-player';
 import AudioPlayer from 'react-modular-audio-player';
 
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.currentSong = this.props.currentSong.currentSong;
+  }
+
+  componentDidMount() {
+    document.getElementById('play').click();
   }
 
   render() {
+
     let playlist = [{
-      src: this.currentSong.audioUrl,
-      title: this.currentSong.song_name,
-      artist: this.currentSong.artist_name}];
+      src: this.props.currentSong.audioUrl,
+      title: this.props.currentSong.song_name,
+      artist: this.props.currentSong.artist_name}];
 
     let rearrangedPlayer = [
       {
@@ -76,10 +79,10 @@ class SongPlayer extends React.Component {
             fontSize="14px"
             />
           <div className="song-player-songinfo">
-            <img className="song-player-img" src={this.currentSong.artworkUrl} />
+            <img className="song-player-img" src={this.props.currentSong.artworkUrl} />
             <div className="song-player-artistsong">
-              <h3 className="song-player-artist">{this.currentSong.artist_name}</h3>
-              <h3 className="song-player-song">{this.currentSong.song_name}</h3>
+              <h3 className="song-player-artist">{this.props.currentSong.artist_name}</h3>
+              <h3 className="song-player-song">{this.props.currentSong.song_name}</h3>
             </div>
           </div>
         </div>

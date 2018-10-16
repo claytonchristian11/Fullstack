@@ -26,7 +26,7 @@ body {
 
 .stream-stream-div {
   margin-left: 30px;
-  border-bottom: 4px solid whitesmoke;
+  border-bottom: 3px solid whitesmoke;
   width: 90%;
 }
 
@@ -92,6 +92,10 @@ body {
   height: 50px;
   width: 50px;
   margin-left: 20px;
+}
+
+.song-item-play:hover {
+  cursor: pointer;
 }
 
 .song-item-top {

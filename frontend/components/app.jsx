@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect, Switch, Link, HashRouter} from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute, PlayRoute } from '../util/route_util';
-import Splash from './splash/splash';
+import Splash from './splash/splash_container';
 import Navbar from './navbar/navbar_container';
 import Stream from './stream/stream_container';
 import Upload from './songs/song_upload_container';

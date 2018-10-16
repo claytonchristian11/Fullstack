@@ -1,7 +1,7 @@
 .upload-form {
-  border: 5px solid whitesmoke;
+  border: 3px solid whitesmoke;
   width: 70%;
-  height: 400px;
+  height: 440px;
   margin-top: 80px;
 
 }
@@ -9,6 +9,8 @@
 .upload-form-div {
   display: flex;
   justify-content: center;
+  background-color: #fff;
+  height: 900px;
 }
 
 .upload-form label, input {

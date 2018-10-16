@@ -27,6 +27,7 @@
 
 .song-player-songinfo {
   margin-right: 300px;
+  margin-left: 30px;
   display: flex;
   flex-direction: row;
 }
