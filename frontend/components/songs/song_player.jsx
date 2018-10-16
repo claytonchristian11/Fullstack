@@ -11,31 +11,38 @@ class SongPlayer extends React.Component {
 
   render() {
     let playlist = [{
-      src:this.currentSong.audioUrl,
+      src: this.currentSong.audioUrl,
       title: this.currentSong.song_name,
       artist: this.currentSong.artist_name}];
 
     let rearrangedPlayer = [
       {
         className: "player-buttons",
+        style: {margin: "0 10px 0 10px"},
         innerComponents: [
           {
-            type: "rewind"
+            type: "rewind",
+            style: {width: "fit-content", margin: "0 0 0 80px"}
           },
           {
-            type: "play"
+            type: "play",
+            style: {width: "fit-content", margin: "0 0 0 30px"}
           },
           {
-            type: "forward"
+            type: "forward",
+            style: {width: "fit-content", margin: "0 0 0 28px"}
           },
           {
-            type: "loop"
+            type: "time",
+            style: {width: "fit-content", margin: "2px 0 0 40px"}
           },
           {
-            type: "time"
+            type: "seek",
+            style: {width: "450px", margin: "5px 0 0 10px"}
           },
           {
-            type: "seek"
+            type: "volume",
+            style: {width: "fit-content", margin: "0 0 0 30px"}
           }
         ]
       }
@@ -51,8 +58,8 @@ class SongPlayer extends React.Component {
             sliderClass="song-player-slider"
             playIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Play-512.png"
             playHoverIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Play-512.png"
-            pauseIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Pause-128.png"
-            pauseHoverIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Pause-128.png"
+            pauseIcon="http://downloadicons.net/sites/default/files/pause-button-icon-23103.png"
+            pauseHoverIcon="http://downloadicons.net/sites/default/files/pause-button-icon-23103.png"
             forwardIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Next_Track-128.png"
             forwardHoverIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Next_Track-128.png"
             rewindIcon="https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Previous_Track-128.png"
@@ -68,6 +75,13 @@ class SongPlayer extends React.Component {
             fontWeight="400"
             fontSize="14px"
             />
+          <div className="song-player-songinfo">
+            <img className="song-player-img" src={this.currentSong.artworkUrl} />
+            <div className="song-player-artistsong">
+              <h3 className="song-player-artist">{this.currentSong.artist_name}</h3>
+              <h3 className="song-player-song">{this.currentSong.song_name}</h3>
+            </div>
+          </div>
         </div>
       </div>
     );

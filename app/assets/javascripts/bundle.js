@@ -1098,18 +1098,45 @@ function (_React$Component) {
       }];
       var rearrangedPlayer = [{
         className: "player-buttons",
+        style: {
+          margin: "0 10px 0 10px"
+        },
         innerComponents: [{
-          type: "rewind"
+          type: "rewind",
+          style: {
+            width: "fit-content",
+            margin: "0 0 0 80px"
+          }
         }, {
-          type: "play"
+          type: "play",
+          style: {
+            width: "fit-content",
+            margin: "0 0 0 30px"
+          }
         }, {
-          type: "forward"
+          type: "forward",
+          style: {
+            width: "fit-content",
+            margin: "0 0 0 28px"
+          }
         }, {
-          type: "loop"
+          type: "time",
+          style: {
+            width: "fit-content",
+            margin: "2px 0 0 40px"
+          }
         }, {
-          type: "time"
+          type: "seek",
+          style: {
+            width: "450px",
+            margin: "5px 0 0 10px"
+          }
         }, {
-          type: "seek"
+          type: "volume",
+          style: {
+            width: "fit-content",
+            margin: "0 0 0 30px"
+          }
         }]
       }];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1124,8 +1151,8 @@ function (_React$Component) {
         sliderClass: "song-player-slider",
         playIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Play-512.png",
         playHoverIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Play-512.png",
-        pauseIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Pause-128.png",
-        pauseHoverIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Pause-128.png",
+        pauseIcon: "http://downloadicons.net/sites/default/files/pause-button-icon-23103.png",
+        pauseHoverIcon: "http://downloadicons.net/sites/default/files/pause-button-icon-23103.png",
         forwardIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Next_Track-128.png",
         forwardHoverIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Next_Track-128.png",
         rewindIcon: "https://cdn2.iconfinder.com/data/icons/multimedia-glyph-black/2048/Previous_Track-128.png",
@@ -1140,7 +1167,18 @@ function (_React$Component) {
         fontFamily: "sans-serif",
         fontWeight: "400",
         fontSize: "14px"
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "song-player-songinfo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "song-player-img",
+        src: this.currentSong.artworkUrl
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "song-player-artistsong"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "song-player-artist"
+      }, this.currentSong.artist_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "song-player-song"
+      }, this.currentSong.song_name)))));
     }
   }]);
 
