@@ -1,11 +1,11 @@
 import React from 'react';
-import SoundCloudWaveform from './waveformGenerator';
 
 class SongItem extends React.Component {
   constructor(props) {
     super(props);
     this.song = this.props.song;
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   componentDidMount() {
@@ -15,6 +15,12 @@ class SongItem extends React.Component {
   handlePlay(e) {
     e.preventDefault();
     this.props.receivePlaySong(this.song);
+  }
+
+  handleShow(e) {
+    e.preventDefault();
+    this.props.receiveShowSong(this.song);
+    this.props.history.push(`/songs/${this.song.id}`);
   }
 
   render() {
@@ -35,11 +41,11 @@ class SongItem extends React.Component {
                   />
                 <div className="song-item-header">
                   <h3 className="song-item-artistname">{this.song.artist_name}</h3>
-                  <h3 className="song-item-songname">{this.song.song_name}</h3>
+                  <h3 onClick={this.handleShow} className="song-item-songname">{this.song.song_name}</h3>
                 </div>
               </div>
               <div>
-
+                <img className="song-item-waveform" src='https://i.imgur.com/WY1U2DE.png' />
               </div>
             </div>
           </div>

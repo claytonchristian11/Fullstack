@@ -4,6 +4,8 @@ export const RECEIVE_CURRENT_SONG = 'RECEIVE_CURRENT_SONG';
 export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_PLAY_SONG = 'RECEIVE_PLAY_SONG';
+export const RECEIVE_SHOW_SONG = 'RECEIVE_SHOW_SONG';
+export const RECEIVE_DELETE_SONG = 'RECEIVE_DELETE_SONG';
 
 export const receiveSong = song => dispatch => (
   APIUtil.receiveSong(song)
@@ -22,6 +24,25 @@ export const fetchAllSongs = () => dispatch => {
       dispatch(receiveErrors(err.responseJSON))
   ))
 );
+};
+
+export const fetchSong = id => dispatch => (
+  APIUtil.fetchSong(id).then(song => (
+    dispatch(receiveSong(song))
+  ))
+);
+
+export const deleteSong = song => dispatch => (
+  APIUtil.deleteSong(song).then(() => (
+    dispatch(receiveDeleteSong(song))
+  ))
+);
+
+export const receiveShowSong = song => {
+  return {
+    type: RECEIVE_SHOW_SONG,
+    song
+  };
 };
 
 export const receivePlaySong = song => {
@@ -45,4 +66,9 @@ export const receiveCurrentSong = song => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+});
+
+export const receiveDeleteSong = song => ({
+  type: RECEIVE_DELETE_SONG,
+  song
 });

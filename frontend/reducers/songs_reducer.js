@@ -1,7 +1,12 @@
-import { RECEIVE_CURRENT_SONG, RECEIVE_ALL_SONGS, RECEIVE_PLAY_SONG } from '../actions/song_actions';
+import {
+  RECEIVE_CURRENT_SONG,
+  RECEIVE_ALL_SONGS,
+  RECEIVE_PLAY_SONG,
+  RECEIVE_DELETE_SONG
+  } from '../actions/song_actions';
 import merge from 'lodash/merge';
 
-const songReducer = (oldState = {}, action) => {
+const songsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_CURRENT_SONG:
@@ -13,9 +18,13 @@ const songReducer = (oldState = {}, action) => {
           songs[song.id] = song;
         });
       return songs;
+    case RECEIVE_DELETE_SONG:
+      let newState = merge({}, oldState);
+      delete newState[action.song];
+      return newState;
     default:
       return oldState;
   }
 };
 
-export default songReducer;
+export default songsReducer;

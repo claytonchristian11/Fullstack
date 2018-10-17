@@ -15,7 +15,16 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find_by(params[:id])
+    @song = Song.find(params[:id])
+  end
+
+  def destroy
+    @song = Song.find(params[:id])
+    if @song.destroy
+      render :show
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
   private

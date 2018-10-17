@@ -88,6 +88,10 @@ body {
   font-weight: 300;
 }
 
+.song-item-songname:hover {
+  cursor: pointer;
+}
+
 .song-item-play {
   height: 50px;
   width: 50px;
