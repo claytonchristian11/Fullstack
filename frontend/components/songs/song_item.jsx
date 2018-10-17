@@ -19,24 +19,9 @@ class SongItem extends React.Component {
 
   render() {
 
-  let songid = `Song${this.song.id}`;
-
-
-    fetch(this.song.audioUrl)
-    .then(audfile => audfile.blob())
-    .then(blob => {
-      SoundCloudWaveform.generate(blob, {
-        onComplete: function(png, pixels) {
-          debugger;
-          let canvas = document.getElementById(songid);
-    			let context = canvas.getContext('2d');
-    			context.putImageData(pixels, 0, 0);
-        }
-      });
-    });
-
     return (
       <div>
+
         <li className="stream-song-item">
           <div className="stream-song-item-div">
             <div>
@@ -54,7 +39,7 @@ class SongItem extends React.Component {
                 </div>
               </div>
               <div>
-                <canvas width='453' height='66' id={songid}></canvas>
+
               </div>
             </div>
           </div>

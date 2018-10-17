@@ -1,4 +1,7 @@
 import React from 'react';
+import Wavesurfer from 'wavesurfer.js';
+import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
+import MinimapPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.minimap.min.js';
 
 export default class SongUpload extends React.Component {
 
@@ -16,6 +19,10 @@ export default class SongUpload extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAudioFile = this.handleAudioFile.bind(this);
     this.handleArtworkFile = this.handleArtworkFile.bind(this);
+  }
+
+  componentDidMount() {
+
   }
 
   update(field) {
@@ -54,16 +61,18 @@ export default class SongUpload extends React.Component {
 
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
+
     }
 
     if (this.state.artworkFile) {
       formData.append('song[artwork]', this.state.artworkFile);
     }
-    this.props.receiveSong(formData).then(this.props.history.push('/home'));
+    this.props.receiveSong(formData);
   }
 
   render() {
     const artworkPreview = <img className="upload-form-art" src={this.state.artworkUrl} />;
+
 
     return (
       <div className="upload-form-div">
@@ -108,6 +117,7 @@ export default class SongUpload extends React.Component {
             </div>
           </form>
         </div>
+
       </div>
 
     );
