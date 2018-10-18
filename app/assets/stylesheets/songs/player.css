@@ -9,6 +9,7 @@
   border-top: 1px solid #cecece;
   height: 50px;
   margin-left: -100px;
+  z-index: 69;
 }
 
 .song-player-slider {

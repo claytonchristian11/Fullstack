@@ -11,6 +11,10 @@ class SongPlayer extends React.Component {
     document.getElementById('play').click();
   }
 
+  componentDidUpdate() {
+    document.getElementById('play').click();
+  }
+
   render() {
 
     let playlist = [{

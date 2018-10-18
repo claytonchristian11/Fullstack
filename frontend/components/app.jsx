@@ -10,12 +10,14 @@ import Player from './songs/song_player_container';
 import SongShow from './songs/song_show_container';
 import SongEdit from './songs/song_edit_container';
 import Profile from './users/profile_container';
+import Autocomplete from './navbar/autocomplete_container';
 
 const App = () => (
   <div>
       <ProtectedRoute path="/" component={Navbar} />
       <PlayRoute path="/" component={Player} />
     <Switch>
+      <ProtectedRoute exact path="/auto" component={Autocomplete} />
       <ProtectedRoute path="/users/:id" component={Profile} />
       <ProtectedRoute path="/songs/edit/:id" component={SongEdit} />
       <ProtectedRoute path="/songs/:id" component={SongShow} />

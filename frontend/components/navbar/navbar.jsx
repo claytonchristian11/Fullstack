@@ -1,4 +1,5 @@
 import React from 'react';
+import Autocomplete from './autocomplete_container';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Navbar extends React.Component {
         </div>
         <div className="navbar-home" onClick={this.handleHome}>Home</div>
         <div className="navbar-search-div">
-          <input className="navbar-search" type="text" placeholder="  Search" />
+          <Autocomplete history={this.props.history} className="navbar-search" />
         </div>
         <div className="navbar-upload" onClick={this.handleUpload}>Upload</div>
         <div className="navbar-profile" onClick={this.handleProfile}>Profile</div>
