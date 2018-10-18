@@ -65,7 +65,7 @@ class Autocomplete extends React.Component {
     const inputProps = {
       placeholder: 'Search',
       value,
-      onChange: this.onChange.bind(this)
+      onChange: this.onChange.bind(this),
     };
 
     return (
@@ -77,6 +77,7 @@ class Autocomplete extends React.Component {
             getSuggestionValue={this.getSuggestionValue.bind(this)}
             renderSuggestion={this.renderSuggestion.bind(this)}
             inputProps={inputProps}
+            highlightFirstSuggestion={true}
           />
         <img className="search-icon"
           onClick={this.handleSearch.bind(this)}

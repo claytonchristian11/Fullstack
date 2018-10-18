@@ -677,7 +677,8 @@ function (_React$Component) {
         onSuggestionsClearRequested: this.onSuggestionsClearRequested.bind(this),
         getSuggestionValue: this.getSuggestionValue.bind(this),
         renderSuggestion: this.renderSuggestion.bind(this),
-        inputProps: inputProps
+        inputProps: inputProps,
+        highlightFirstSuggestion: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "search-icon",
         onClick: this.handleSearch.bind(this),
@@ -1584,9 +1585,15 @@ function (_React$Component) {
   _inherits(SongPlayer, _React$Component);
 
   function SongPlayer(props) {
+    var _this;
+
     _classCallCheck(this, SongPlayer);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SongPlayer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SongPlayer).call(this, props));
+    _this.state = {
+      song: _this.props.currentSong.song_name
+    };
+    return _this;
   }
 
   _createClass(SongPlayer, [{
@@ -1597,7 +1604,14 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      document.getElementById('play').click();
+      debugger;
+
+      if (this.state.song !== this.props.currentSong) {
+        this.setState({
+          song: this.props.currentSong.song_name
+        });
+        document.getElementById('play').click();
+      }
     }
   }, {
     key: "render",
@@ -2351,7 +2365,12 @@ function (_React$Component) {
         className: "splash-footer-div"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "splash-footer-text"
-      }, "Thanks for checking out the site")))));
+      }, "Thanks for checking out the site! Check out the creator here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "linkedindiv"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "linkedin",
+        href: "https://www.linkedin.com/in/clayton-christian/"
+      }, "linkedIn"))))));
     }
   }]);
 
@@ -2477,7 +2496,18 @@ function (_React$Component) {
           song: song,
           history: _this.props.history
         });
-      }))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stream-footer-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "stream-footer-text"
+      }, "Thanks for checking out the site! Check out the creator here"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "linkedindiv"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "linkedin",
+        href: "https://www.linkedin.com/in/clayton-christian/"
+      }, "linkedIn")))));
     }
   }]);
 
@@ -2570,11 +2600,11 @@ function (_React$Component) {
   _createClass(Profile, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-show"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "profile-show-songname"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Profile show"));
+      }, this.props.currUsername))));
     }
   }]);
 

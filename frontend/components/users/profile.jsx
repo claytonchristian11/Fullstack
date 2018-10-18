@@ -9,10 +9,11 @@ class Profile extends React.Component {
   render() {
     return(
       <div>
-        <div className="profile-show">
-          <h3 className="profile-show-songname"></h3>
+        <div>
+          <div className="profile-show">
+            <h3 className="profile-show-songname">{this.props.currUsername}</h3>
+          </div>
         </div>
-        <h1>Profile show</h1>
       </div>
     );
   }

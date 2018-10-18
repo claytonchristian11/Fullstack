@@ -11,7 +11,7 @@ class Stream extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-  
+
   }
 
   render() {
@@ -36,6 +36,16 @@ class Stream extends React.Component {
                   history={this.props.history} />
               ))}
           </ul>
+        </div>
+        <div className="stream-footer">
+          <div className="stream-footer-div">
+            <h3 className="stream-footer-text">
+              Thanks for checking out the site! Check out the creator here
+            </h3>
+            <div className="linkedindiv">
+              <a className="linkedin" href="https://www.linkedin.com/in/clayton-christian/">linkedIn</a>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -62,7 +62,10 @@ class Splash extends React.Component {
           </div>
           <div className="splash-footer">
             <div className="splash-footer-div">
-              <h3 className="splash-footer-text">Thanks for checking out the site</h3>
+              <h3 className="splash-footer-text">Thanks for checking out the site! Check out the creator here</h3>
+              <div className="linkedindiv">
+                <a className="linkedin" href="https://www.linkedin.com/in/clayton-christian/">linkedIn</a>
+              </div>
             </div>
           </div>
         </main>

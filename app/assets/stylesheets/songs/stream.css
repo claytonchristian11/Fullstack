@@ -118,3 +118,53 @@ body {
   width: 700px;
   margin-top: 10px;
 }
+
+.stream-footer {
+  background-color: #fff;
+  margin-top: 0;
+  padding-top: 20px;
+  margin-left: 100px;
+  width: 100%;
+}
+
+.stream-footer-div {
+  width: 90%;
+  margin-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top: 3px solid whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.stream-footer-text {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #999;
+  font-size: 13px;
+  margin-left: 5px;
+}
+.linkedindiv {
+  margin: 11px 0 0 6px;
+}
+
+.linkedin {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #666;
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+.linkedin:visited {
+  font-family: sans-serif;
+  font-weight: 300;
+  color: #666;
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+.linkedin:hover {
+  cursor: pointer;
+}

@@ -5,6 +5,9 @@ import AudioPlayer from 'react-modular-audio-player';
 class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      song: this.props.currentSong.song_name
+    };
   }
 
   componentDidMount() {
@@ -12,7 +15,13 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate() {
-    document.getElementById('play').click();
+    debugger;
+    if (this.state.song !== this.props.currentSong) {
+      this.setState({
+        song: this.props.currentSong.song_name
+      });
+      document.getElementById('play').click();
+    }
   }
 
   render() {

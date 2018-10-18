@@ -310,6 +310,8 @@
   padding-top: 5px;
   padding-bottom: 10px;
   border-top: 3px solid whitesmoke;
+  display: flex;
+  flex-direction: row;
 }
 
 .splash-footer-text {
