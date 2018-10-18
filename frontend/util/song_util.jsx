@@ -28,3 +28,15 @@ export const deleteSong = song => (
     method: 'DELETE'
   })
 );
+
+export const editSong = song => {
+  return (
+  $.ajax({
+    url: `/api/songs/${song.get('song[id]')}`,
+    method: 'PATCH',
+    data: song,
+    contentType: false,
+    processData: false
+  })
+);
+};

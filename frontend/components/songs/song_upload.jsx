@@ -1,7 +1,4 @@
 import React from 'react';
-import Wavesurfer from 'wavesurfer.js';
-import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
-import MinimapPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.minimap.min.js';
 
 export default class SongUpload extends React.Component {
 

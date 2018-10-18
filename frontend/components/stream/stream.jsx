@@ -10,6 +10,10 @@ class Stream extends React.Component {
     this.props.fetchAllSongs();
   }
 
+  componentDidUpdate(prevProps) {
+  
+  }
+
   render() {
     const { songs } = this.props;
     return(

@@ -19,7 +19,7 @@ class SongItem extends React.Component {
 
   handleShow(e) {
     e.preventDefault();
-    this.props.receiveShowSong(this.song);
+    debugger;
     this.props.history.push(`/songs/${this.song.id}`);
   }
 

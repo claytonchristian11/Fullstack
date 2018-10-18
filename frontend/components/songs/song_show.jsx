@@ -9,6 +9,14 @@ class SongShowItem extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
+  componentDidMount() {
+
+  }
+
+  componentDidUpdate(prevProps) {
+
+  }
+
   handlePlay(e) {
     e.preventDefault();
     this.props.receivePlaySong(this.song);
@@ -22,10 +30,12 @@ class SongShowItem extends React.Component {
 
   handleEdit(e) {
     e.preventDefault();
+    debugger;
     this.props.history.push(`/songs/edit/${this.song.id}`);
   }
 
   render() {
+
     return (
       <div>
         <div className="song-show">

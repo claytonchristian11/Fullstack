@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import navbar from './navbar';
+import profile from './profile';
 
 const mapStateToProps = state => ({
   currUserId: state.session.id,
@@ -12,4 +11,4 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(profile);
