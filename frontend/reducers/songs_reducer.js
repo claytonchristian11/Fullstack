@@ -23,7 +23,7 @@ const songsReducer = (oldState = {}, action) => {
     case RECEIVE_EDIT_SONG:
       return merge({}, oldState, { [action.song.id]: action.song });
     case RECEIVE_SHOW_SONG:
-      return action.song;
+      return { [action.song.song.id]: action.song.song};
     case RECEIVE_DELETE_SONG:
       let newState = merge({}, oldState);
       delete newState[action.song];

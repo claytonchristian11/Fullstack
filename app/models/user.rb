@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  Aws.use_bundled_cert!
+  has_one_attached :picture
+
   def self.find_by_credentials(username, pw)
     user = User.find_by(username: username)
     if user && user.is_password?(pw)

@@ -10,11 +10,10 @@ class SongShowItem extends React.Component {
   }
 
   componentDidMount() {
-
+    this.props.fetchSong(this.props.match.params.id);
   }
 
   componentDidUpdate(prevProps) {
-
   }
 
   handlePlay(e) {
@@ -34,6 +33,14 @@ class SongShowItem extends React.Component {
   }
 
   render() {
+    if (!this.props.song) {
+      return (
+        <div>
+        </div>
+      );
+    } else {
+
+    this.song = this.props.song;
 
     return (
       <div>
@@ -59,6 +66,7 @@ class SongShowItem extends React.Component {
         </div>
       </div>
     );
+    }
   }
 
 }

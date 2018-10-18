@@ -1492,7 +1492,7 @@ function (_React$Component) {
         className: "song-item-songname"
       }, this.song.song_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "song-item-waveform",
-        src: "https://i.imgur.com/WY1U2DE.png"
+        src: "http://piratetoronto.com/wp/wp-content/uploads/2016/05/Soundcloud-wave2-1200x169.jpg"
       }))))));
     }
   }]);
@@ -1604,9 +1604,7 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      debugger;
-
-      if (this.state.song !== this.props.currentSong) {
+      if (this.state.song !== this.props.currentSong.song_name) {
         this.setState({
           song: this.props.currentSong.song_name
         });
@@ -1800,7 +1798,9 @@ function (_React$Component) {
 
   _createClass(SongShowItem, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      this.props.fetchSong(this.props.match.params.id);
+    }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {}
@@ -1826,32 +1826,37 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "song-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "song-show-div"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "song-show-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "song-show-play",
-        src: "https://www.seoclerk.com/pics/446033-13uMBM1476730969.png",
-        onClick: this.handlePlay
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "song-show-header"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "song-show-artistname"
-      }, this.song.artist_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "song-show-songname"
-      }, this.song.song_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "song-show-art",
-        src: this.song.artworkUrl
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "song-show-delete",
-        onClick: this.handleDelete
-      }, "Delete Song"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "song-show-delete",
-        onClick: this.handleEdit
-      }, "Edit Song")));
+      if (!this.props.song) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      } else {
+        this.song = this.props.song;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "song-show"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "song-show-div"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "song-show-info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "song-show-play",
+          src: "https://www.seoclerk.com/pics/446033-13uMBM1476730969.png",
+          onClick: this.handlePlay
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "song-show-header"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          className: "song-show-artistname"
+        }, this.song.artist_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+          className: "song-show-songname"
+        }, this.song.song_name))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "song-show-art",
+          src: this.song.artworkUrl
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "song-show-delete",
+          onClick: this.handleDelete
+        }, "Delete Song"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "song-show-delete",
+          onClick: this.handleEdit
+        }, "Edit Song")));
+      }
     }
   }]);
 
@@ -2592,17 +2597,68 @@ function (_React$Component) {
   _inherits(Profile, _React$Component);
 
   function Profile(props) {
+    var _this;
+
     _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Profile).call(this, props));
+    _this.state = {
+      pictureUrl: "http://petmedmd.com/images/user-profile.png",
+      pictureFile: null
+    };
+    return _this;
   }
 
   _createClass(Profile, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _this2 = this;
+
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this2.setState({
+          pictureFile: file,
+          pictureUrl: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+    }
+  }, {
+    key: "handleUpload",
+    value: function handleUpload(e) {
+      e.preventDefault();
+      var formData = new FormData();
+
+      if (this.state.pictureFile) {
+        formData.append('user[picture]', this.state.pictureFile);
+      }
+
+      this.props.receivePic(formData);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var artworkPreview = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "upload-profile-picture",
+        src: this.state.pictureUrl
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile-show"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-picture-div"
+      }, artworkPreview, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "profile-pic-button",
+        onClick: this.handleUpload.bind(this)
+      }, "Change Profile Picture"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "file",
+        className: "upload-pic-input",
+        onChange: this.handleChange.bind(this)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "profile-show-songname"
       }, this.props.currUsername))));
     }
@@ -2913,7 +2969,7 @@ var songsReducer = function songsReducer() {
       return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState, _defineProperty({}, action.song.id, action.song));
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SHOW_SONG"]:
-      return action.song;
+      return _defineProperty({}, action.song.song.id, action.song.song);
 
     case _actions_song_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_DELETE_SONG"]:
       var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, oldState);

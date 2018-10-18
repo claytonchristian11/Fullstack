@@ -15,8 +15,8 @@ class SongPlayer extends React.Component {
   }
 
   componentDidUpdate() {
-    debugger;
-    if (this.state.song !== this.props.currentSong) {
+
+    if (this.state.song !== this.props.currentSong.song_name) {
       this.setState({
         song: this.props.currentSong.song_name
       });
