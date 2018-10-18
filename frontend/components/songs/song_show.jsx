@@ -30,7 +30,6 @@ class SongShowItem extends React.Component {
 
   handleEdit(e) {
     e.preventDefault();
-    debugger;
     this.props.history.push(`/songs/edit/${this.song.id}`);
   }
 

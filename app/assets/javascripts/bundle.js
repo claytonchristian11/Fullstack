@@ -1624,7 +1624,6 @@ function (_React$Component) {
     key: "handleEdit",
     value: function handleEdit(e) {
       e.preventDefault();
-      debugger;
       this.props.history.push("/songs/edit/".concat(this.song.id));
     }
   }, {
