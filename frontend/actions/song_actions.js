@@ -7,8 +7,15 @@ export const RECEIVE_PLAY_SONG = 'RECEIVE_PLAY_SONG';
 export const RECEIVE_SHOW_SONG = 'RECEIVE_SHOW_SONG';
 export const RECEIVE_DELETE_SONG = 'RECEIVE_DELETE_SONG';
 export const RECEIVE_EDIT_SONG = 'RECEIVE_EDIT_SONG';
+export const RECEIVE_CURRENT_PIC = 'RECEIVE_CURRENT_PIC';
 
-
+export const receivePic = pic => dispatch => (
+  APIUtil.receivePic(pic)
+  .then(pic => dispatch(receiveCurrentPic(pic)),
+  err => (
+    dispatch(receiveErrors(err.responseJSON))
+  ))
+);
 
 export const editSong = song => dispatch => {
   return (
@@ -51,6 +58,13 @@ export const deleteSong = song => dispatch => (
     dispatch(receiveDeleteSong(song))
   ))
 );
+
+export const receiveCurrentPic = user => {
+  return {
+    type: RECEIVE_CURRENT_PIC,
+    user
+  };
+};
 
 export const receiveEditSong = song => {
   return {

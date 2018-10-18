@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import profile from './profile';
+import { receivePic } from '../../actions/song_actions';
 
 const mapStateToProps = state => ({
   currUserId: state.session.id,
@@ -8,7 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  receivePic: pic => dispatch(receivePic(pic))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(profile);

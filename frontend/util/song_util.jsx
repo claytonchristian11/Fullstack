@@ -1,3 +1,16 @@
+export const receivePic = user => {
+  let coolId = user.get('user[user_id]');
+  return (
+  $.ajax({
+    url: `/api/users/${coolId}`,
+    method: 'PATCH',
+    data: user,
+    contentType: false,
+    processData: false
+  })
+);
+};
+
 export const receiveSong = song => (
   $.ajax({
     url: '/api/songs',

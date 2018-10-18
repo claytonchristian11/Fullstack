@@ -64,7 +64,8 @@ export default class SongUpload extends React.Component {
     if (this.state.artworkFile) {
       formData.append('song[artwork]', this.state.artworkFile);
     }
-    this.props.receiveSong(formData);
+    this.props.receiveSong(formData)
+    .then(this.props.history.push('/home'));
   }
 
   render() {

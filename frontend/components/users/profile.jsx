@@ -9,6 +9,10 @@ class Profile extends React.Component {
     };
   }
 
+  componentDidMount() {
+    
+  }
+
   handleChange(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -23,10 +27,11 @@ class Profile extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const formData = new FormData();
-
+    formData.append('user[user_id]', this.props.currUserId);
     if (this.state.pictureFile) {
       formData.append('user[picture]', this.state.pictureFile);
     }
+
 
     this.props.receivePic(formData);
   }

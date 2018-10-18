@@ -189,7 +189,7 @@ var receiveErrors = function receiveErrors(errors) {
 /*!******************************************!*\
   !*** ./frontend/actions/song_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_CURRENT_SONG, RECEIVE_ALL_SONGS, RECEIVE_SESSION_ERRORS, RECEIVE_PLAY_SONG, RECEIVE_SHOW_SONG, RECEIVE_DELETE_SONG, RECEIVE_EDIT_SONG, editSong, receiveSong, fetchAllSongs, fetchSong, deleteSong, receiveEditSong, receiveShowSong, receivePlaySong, fetchAllSongsAction, receiveCurrentSong, receiveErrors, receiveDeleteSong */
+/*! exports provided: RECEIVE_CURRENT_SONG, RECEIVE_ALL_SONGS, RECEIVE_SESSION_ERRORS, RECEIVE_PLAY_SONG, RECEIVE_SHOW_SONG, RECEIVE_DELETE_SONG, RECEIVE_EDIT_SONG, RECEIVE_CURRENT_PIC, receivePic, editSong, receiveSong, fetchAllSongs, fetchSong, deleteSong, receiveCurrentPic, receiveEditSong, receiveShowSong, receivePlaySong, fetchAllSongsAction, receiveCurrentSong, receiveErrors, receiveDeleteSong */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -201,11 +201,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SHOW_SONG", function() { return RECEIVE_SHOW_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_DELETE_SONG", function() { return RECEIVE_DELETE_SONG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_EDIT_SONG", function() { return RECEIVE_EDIT_SONG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_PIC", function() { return RECEIVE_CURRENT_PIC; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePic", function() { return receivePic; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editSong", function() { return editSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSong", function() { return receiveSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSongs", function() { return fetchAllSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSong", function() { return fetchSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSong", function() { return deleteSong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveCurrentPic", function() { return receiveCurrentPic; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveEditSong", function() { return receiveEditSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveShowSong", function() { return receiveShowSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePlaySong", function() { return receivePlaySong; });
@@ -222,6 +225,16 @@ var RECEIVE_PLAY_SONG = 'RECEIVE_PLAY_SONG';
 var RECEIVE_SHOW_SONG = 'RECEIVE_SHOW_SONG';
 var RECEIVE_DELETE_SONG = 'RECEIVE_DELETE_SONG';
 var RECEIVE_EDIT_SONG = 'RECEIVE_EDIT_SONG';
+var RECEIVE_CURRENT_PIC = 'RECEIVE_CURRENT_PIC';
+var receivePic = function receivePic(pic) {
+  return function (dispatch) {
+    return _util_song_util__WEBPACK_IMPORTED_MODULE_0__["receivePic"](pic).then(function (pic) {
+      return dispatch(receiveCurrentPic(pic));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
+    });
+  };
+};
 var editSong = function editSong(song) {
   return function (dispatch) {
     return _util_song_util__WEBPACK_IMPORTED_MODULE_0__["editSong"](song).then(function (song) {
@@ -262,6 +275,12 @@ var deleteSong = function deleteSong(song) {
     return _util_song_util__WEBPACK_IMPORTED_MODULE_0__["deleteSong"](song).then(function () {
       return dispatch(receiveDeleteSong(song));
     });
+  };
+};
+var receiveCurrentPic = function receiveCurrentPic(user) {
+  return {
+    type: RECEIVE_CURRENT_PIC,
+    user: user
   };
 };
 var receiveEditSong = function receiveEditSong(song) {
@@ -351,7 +370,11 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["PlayRoute"], {
     path: "/",
     component: _songs_song_player_container__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/",
+    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["ProtectedRoute"], {
     exact: true,
     path: "/auto",
     component: _navbar_autocomplete_container__WEBPACK_IMPORTED_MODULE_11__["default"]
@@ -372,10 +395,6 @@ var App = function App() {
     exact: true,
     path: "/home",
     component: _stream_stream_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_2__["AuthRoute"], {
-    exact: true,
-    path: "/",
-    component: _splash_splash_container__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
     to: "/"
   })));
@@ -2147,7 +2166,7 @@ function (_React$Component) {
         formData.append('song[artwork]', this.state.artworkFile);
       }
 
-      this.props.receiveSong(formData);
+      this.props.receiveSong(formData).then(this.props.history.push('/home'));
     }
   }, {
     key: "render",
@@ -2610,6 +2629,9 @@ function (_React$Component) {
   }
 
   _createClass(Profile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "handleChange",
     value: function handleChange(e) {
       var _this2 = this;
@@ -2633,6 +2655,7 @@ function (_React$Component) {
     value: function handleUpload(e) {
       e.preventDefault();
       var formData = new FormData();
+      formData.append('user[user_id]', this.props.currUserId);
 
       if (this.state.pictureFile) {
         formData.append('user[picture]', this.state.pictureFile);
@@ -2684,6 +2707,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _profile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profile */ "./frontend/components/users/profile.jsx");
+/* harmony import */ var _actions_song_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/song_actions */ "./frontend/actions/song_actions.js");
+
 
 
 
@@ -2709,7 +2734,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return logout;
     }(function () {
       return dispatch(logout());
-    })
+    }),
+    receivePic: function receivePic(pic) {
+      return dispatch(Object(_actions_song_actions__WEBPACK_IMPORTED_MODULE_3__["receivePic"])(pic));
+    }
   };
 };
 
@@ -3016,7 +3044,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 /* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_song_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/song_actions */ "./frontend/actions/song_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -3029,6 +3059,11 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CURRENT_USER"]:
       return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    case _actions_song_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_CURRENT_PIC"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, oldState, {
+        userPic: 'la'
+      });
 
     default:
       return oldState;
@@ -3237,16 +3272,27 @@ var logout = function logout(user) {
 /*!*************************************!*\
   !*** ./frontend/util/song_util.jsx ***!
   \*************************************/
-/*! exports provided: receiveSong, fetchAllSongs, fetchSong, deleteSong, editSong */
+/*! exports provided: receivePic, receiveSong, fetchAllSongs, fetchSong, deleteSong, editSong */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receivePic", function() { return receivePic; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSong", function() { return receiveSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllSongs", function() { return fetchAllSongs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSong", function() { return fetchSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteSong", function() { return deleteSong; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editSong", function() { return editSong; });
+var receivePic = function receivePic(user) {
+  var coolId = user.get('user[user_id]');
+  return $.ajax({
+    url: "/api/users/".concat(coolId),
+    method: 'PATCH',
+    data: user,
+    contentType: false,
+    processData: false
+  });
+};
 var receiveSong = function receiveSong(song) {
   return $.ajax({
     url: '/api/songs',

@@ -17,13 +17,13 @@ const App = () => (
       <ProtectedRoute path="/" component={Navbar} />
       <PlayRoute path="/" component={Player} />
     <Switch>
+      <Route exact path="/" component={Splash} />
       <ProtectedRoute exact path="/auto" component={Autocomplete} />
       <ProtectedRoute path="/users/:id" component={Profile} />
       <ProtectedRoute path="/songs/edit/:id" component={SongEdit} />
       <ProtectedRoute path="/songs/:id" component={SongShow} />
       <ProtectedRoute exact path="/upload" component={Upload} />
       <ProtectedRoute exact path="/home" component={Stream} />
-      <AuthRoute exact path="/" component={Splash} />
       <Redirect to="/" />
     </Switch>
   </div>
