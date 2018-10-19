@@ -81,7 +81,7 @@ class Autocomplete extends React.Component {
           />
         <img className="search-icon"
           onClick={this.handleSearch.bind(this)}
-          src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+          src="https://cdn0.iconfinder.com/data/icons/basic-lines/39/search-512.png"
           />
       </div>
     );
