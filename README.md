@@ -1,6 +1,6 @@
 ## CloudSounds
 
- Welcome to [CloudSounds](https://cloudsounds.herokuapp.com/#/), a functional clone of the popular music sharing site - SoundCloud.
+ Welcome to [CloudSounds](https://cloudsounds.herokuapp.com/#/), a functional clone of the popular music sharing site - SoundCloud
 
 
 #### Overview
