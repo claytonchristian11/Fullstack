@@ -1,48 +1,59 @@
-# README
+## CloudSounds
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ Welcome to [CloudSounds](https://cloudsounds.herokuapp.com/#/), a functional clone of the popular music sharing site - SoundCloud.
 
-Things you may want to cover:
 
-* Ruby version
+#### Overview
 
-* System dependencies
+ * Music files and album artwork can be uploaded, edited, and even deleted from the stream
 
-* Configuration
+ * The ability to listen to music, with all of your favorite songs hosted on the cloud with help from [AWS](https://aws.amazon.com/)
 
-* Database creation
 
-* Database initialization
+ * Users can create accounts knowing their credentials are stored safely, encrypted using bcrypt
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+#### The Stack
+CloudSounds was built using Ruby on Rails for the backend, using Postgres as a database management system. Rails was helpful in getting a working product relatively quickly, due to its convention over configuration ideology.
 
-* Deployment instructions
+The front-end was built on Javascript, utilizing React and Redux libraries. These libraries helped create a responsive user experience that keeps track of the application state in an organized manner.
 
-* ...
+#### Key Features
 
-Installed at beginning
-bundle install
-npm install --save
-npm install webpack webpack-cli react react-dom react-router-dom redux react-redux @babel/core @babel/preset-react @babel/preset-env babel-loader lodash
+One neat feature to implement was a continuous play bar that persisted even when pages changed. This was done by wrapping the music player react component in a route that checks if there is a song in the slice of state for playing, and rendering the component if so.
 
-Install before dev
-master.key
-bundle install
-npm install
-rails db:create
-rails db:migrate
-rails s
-webpack --watch --mode=development
 
-Push mess up to heroku
-download heroku
-heroku login
-heroku git:remote -a cloudsounds
-git push heroku master
+```javascript
+// Creates play route to wrap player component in
+const Play = ({ component: Component, path, songPlaying, exact }) => (
+  <Route path={path} exact={exact} render={(props) => (
+      !songPlaying ? (<Component {...props} />) : (null)
+    )} />
+);
 
-aws kanye grindallday1!
+// Checks slice of state responsible for current song
+// songPlaying returns true if it is an empty object
+const mapStateToProps = state => {
+  let currentSong = state.entities.currentSong
+  return {
+    songPlaying: Object.keys(currentSong).length === 0 && currentSong.constructor === Object
+  }
+};
+```
 
-https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg
+
+#### For Development
+
+Before working on the project, the following commands should be run
+
+`bundle install`
+`npm install`
+
+`rails db:create`
+`rails db:migrate`
+
+#### Whats next?
+ This project was developed initially in only 2 weeks, so there are definitely a few features I would like to add:
+ * Individual waveforms for songs based on frequency peaks
+ * Ability to create and add songs to playlists
+ * Description and genre interests for users
