@@ -3,7 +3,7 @@
  Welcome to [CloudSounds](https://cloudsounds.herokuapp.com/#/), a functional clone of the popular music sharing site - SoundCloud
 
 
-#### Overview
+### Overview
 
  * Music files and album artwork can be uploaded, edited, and even deleted from the stream
 
@@ -13,12 +13,12 @@
  * Users can create accounts knowing their credentials are stored safely, encrypted using bcrypt
 
 
-#### The Stack
+### The Stack
 CloudSounds was built using Ruby on Rails for the backend, using Postgres as a database management system. Rails was helpful in getting a working product relatively quickly, due to its convention over configuration ideology.
 
 The front-end was built on Javascript, utilizing React and Redux libraries. These libraries helped create a responsive user experience that keeps track of the application state in an organized manner.
 
-#### Key Features
+### Key Features
 
 One neat feature to implement was a continuous play bar that persisted even when pages changed. This was done by wrapping the music player react component in a route that checks if there is a song in the slice of state for playing, and rendering the component if so.
 
@@ -42,7 +42,7 @@ const mapStateToProps = state => {
 ```
 
 
-#### For Development
+### For Development
 
 Before working on the project, the following commands should be run
 
@@ -52,7 +52,7 @@ Before working on the project, the following commands should be run
 `rails db:create`
 `rails db:migrate`
 
-#### Whats next?
+### Whats next?
  This project was developed initially in only 2 weeks, so there are definitely a few features I would like to add:
  * Individual waveforms for songs based on frequency peaks
  * Ability to create and add songs to playlists
