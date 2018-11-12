@@ -18,6 +18,7 @@ CloudSounds was built using Ruby on Rails for the backend, using Postgres as a d
 
 The front-end was built on Javascript, utilizing React and Redux libraries. These libraries helped create a responsive user experience that keeps track of the application state in an organized manner.
 
+![](https://preview.ibb.co/iOhz7q/Screen-Shot-2018-11-07-at-10-01-19-PM.png)
 ### Key Features
 
 One neat feature to implement was a continuous play bar that persisted even when pages changed. This was done by wrapping the music player react component in a route that checks if there is a song in the slice of state for playing, and rendering the component if so.
