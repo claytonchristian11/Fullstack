@@ -105,9 +105,3 @@ class SongPlayer extends React.Component {
 }
 
 export default SongPlayer;
-
-// <ReactAudioPlayer
-//   className="song-player-el"
-//   src={this.currentSong.audioUrl}
-//   controls
-//   />
