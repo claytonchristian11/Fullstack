@@ -44,7 +44,7 @@ class SongItem extends React.Component {
                 </div>
               </div>
               <div>
-                <img className="song-item-waveform" src='http://piratetoronto.com/wp/wp-content/uploads/2016/05/Soundcloud-wave2-1200x169.jpg' />
+                <img className="song-item-waveform" src='https://miro.medium.com/max/4800/1*17P2QALBmB-uGX261v0hEQ.jpeg' />
               </div>
             </div>
           </div>
