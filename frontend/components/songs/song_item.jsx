@@ -44,7 +44,7 @@ class SongItem extends React.Component {
                 </div>
               </div>
               <div>
-                <img className="song-item-waveform" src='https://miro.medium.com/max/4800/1*17P2QALBmB-uGX261v0hEQ.jpeg' />
+                <img className="song-item-waveform" src='https://i.stack.imgur.com/EwnNL.png' />
               </div>
             </div>
           </div>
